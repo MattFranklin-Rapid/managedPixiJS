@@ -7,6 +7,9 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
+    "@pixi/filter-rgb-split": "^5.0.0",
+    "pixi-filters": "^5.1.0",
+    "pixi-particles": "^4.3.1",
     "pixi.js": "^7.0.0"
   },
   "devDependencies": {

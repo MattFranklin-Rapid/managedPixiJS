@@ -1,0 +1,44 @@
+{"frames": {
+
+"blink-anti.png":
+{
+	"frame": {"x":0,"y":0,"w":35,"h":26},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":26},
+	"sourceSize": {"w":35,"h":26}
+},
+"blink-closed.png":
+{
+	"frame": {"x":0,"y":26,"w":35,"h":26},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":26},
+	"sourceSize": {"w":35,"h":26}
+},
+"blink-recovered.png":
+{
+	"frame": {"x":0,"y":52,"w":35,"h":25},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":25},
+	"sourceSize": {"w":35,"h":25}
+},
+"blink-recovery.png":
+{
+	"frame": {"x":0,"y":77,"w":35,"h":26},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":26},
+	"sourceSize": {"w":35,"h":26}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "kitten1-blink.png",
+	"format": "RGBA8888",
+	"size": {"w":35,"h":103},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d2f5cb346ebdc34138e242f4cb1ebdba:575e6c00063f621e8ac38dbd25352d85:47548ef83fb9945e1a9b198e3d6dd55b$"
+}
+}

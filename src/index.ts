@@ -1,19 +1,10 @@
-import { Application, Sprite } from 'pixi.js'
+import { Manager } from './controllers/manager';
+import { LoaderScene } from './scenes/loaderScene';
 
-const app = new Application({
-	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
-	resolution: window.devicePixelRatio || 1,
-	autoDensity: true,
-	backgroundColor: 0x6495ed,
-	width: 640,
-	height: 480
-});
+//We are using a custom Manager class that extends the Pixi JS App to control both the loaded app and it sscenes
 
-const clampy: Sprite = Sprite.from("clampy.png");
+Manager.initialize(640, 480, 0x6495ed);
 
-clampy.anchor.set(0.5);
-
-clampy.x = app.screen.width / 2;
-clampy.y = app.screen.height / 2;
-
-app.stage.addChild(clampy);
+//Load the first scene
+const loadingScene: LoaderScene = new LoaderScene();
+Manager.changeScene(loadingScene);
