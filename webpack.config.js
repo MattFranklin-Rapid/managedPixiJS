@@ -19,6 +19,7 @@ module.exports = (env, argv) => {
         devServer: {
             compress: true,
             static: false,
+            liveReload: true,
             client: {
                 logging: "warn",
                 overlay: {

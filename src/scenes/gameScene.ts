@@ -1,4 +1,4 @@
-import { AnimatedSprite, Assets, Container, Sprite } from "pixi.js";
+import { AnimatedSprite, Assets, Container, FederatedPointerEvent, Sprite } from "pixi.js";
 import { IScene } from "./scene";
 import { Manager } from "../controllers/manager";
 
@@ -42,6 +42,8 @@ export class GameScene extends Container implements IScene {
      * Loads the blinking animation kitty
      */
     private async loadBlinkAnimation(): Promise<void> {
+        //Note the load here is strictly not required, as .get would work given we already passed through the loader scene
+        //BUT! The .load method is optimized to not waste duplicate loads and is recommended, even though it throws a warning annoyingly
         const blinkSheet = await Assets.load('./kitten1/kitten1-blink.json');
         const animatedKitten = new AnimatedSprite(blinkSheet.animations['blink']);
         animatedKitten.name = 'Kitty 1';
@@ -49,9 +51,19 @@ export class GameScene extends Container implements IScene {
         animatedKitten.y = Manager.height / 2;
         animatedKitten.loop = false;
         animatedKitten.animationSpeed = 0.25;
+
+        animatedKitten.on('pointertap', this.jump, animatedKitten);
+        animatedKitten.interactive = true;
+
         this.animations.push(animatedKitten);
     }
 
+    private jump(e: FederatedPointerEvent): void {
+        console.warn(e.ctrlKey);//GO AWAY you frigging did not use error I hate you
+        this.y -= 5; 
+    }
+
+    
     public update(framesPassed: number): void {
         // Lets move!
         this.frameCount += framesPassed;
@@ -68,7 +80,6 @@ export class GameScene extends Container implements IScene {
         }
 
         if(Math.floor(this.frameCount) % 100 == 0){
-            console.log('Lets Go');
             this.animations[0].gotoAndPlay(0); //Again, ugly
         }
     }
