@@ -169,14 +169,14 @@
             <key>defaultPivotPoint</key>
             <point_f>0,0</point_f>
             <key>writePivotPoints</key>
-            <false/>
+            <true/>
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">01blink-anti.png</key>
-            <key type="filename">02blink-closed.png</key>
-            <key type="filename">03blink-recovery.png</key>
-            <key type="filename">04blink-recovered.png</key>
+            <key type="filename">blink-01.png</key>
+            <key type="filename">blink-02.png</key>
+            <key type="filename">blink-03.png</key>
+            <key type="filename">blink-04.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -198,10 +198,10 @@
             <struct type="SpriteSheet">
                 <key>files</key>
                 <array>
-                    <filename>01blink-anti.png</filename>
-                    <filename>02blink-closed.png</filename>
-                    <filename>03blink-recovery.png</filename>
-                    <filename>04blink-recovered.png</filename>
+                    <filename>blink-01.png</filename>
+                    <filename>blink-02.png</filename>
+                    <filename>blink-03.png</filename>
+                    <filename>blink-04.png</filename>
                 </array>
             </struct>
         </map>

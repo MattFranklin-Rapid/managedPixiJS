@@ -19,3 +19,7 @@ The [Partcile Designer](https://pixijs.io/pixi-particles-editor/) is a good way 
 For spritesheets I'm using [TexturePacker](https://www.codeandweb.com/texturepacker) to produce the packed sheets
 These produce a JSON file that is formatted so that Pixi.js can understand it and can be seen in the assets.ts manifest file
 Using it, you can reference the names directly out of the JSON, they are globally loaded by the asset loader
+
+
+For keyboard events use code instead of key
+[Toptal](https://www.toptal.com/developers/keycode) has a pretty awesome keycode getter

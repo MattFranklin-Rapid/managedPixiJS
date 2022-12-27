@@ -13,14 +13,15 @@ export class GameScene extends Container implements IScene {
         super();
 
         //This is pulled from the sprite map in kitten1.json
-        this.kitten = Sprite.from("04blink-recovered.png");
+        this.kitten = Sprite.from("blink-04.png");
 
         const blinkFrames: Texture[] = [];
-        blinkFrames.push(Texture.from('01blink-anti.png'));
-        blinkFrames.push(Texture.from('02blink-closed.png'));
-        blinkFrames.push(Texture.from('02blink-closed.png'));
-        blinkFrames.push(Texture.from('03blink-recovery.png'));
-        blinkFrames.push(Texture.from('04blink-recovered.png'));
+        blinkFrames.push(Texture.from('blink-01.png'));
+        blinkFrames.push(Texture.from('blink-02.png'));
+        blinkFrames.push(Texture.from('blink-02.png'));
+        blinkFrames.push(Texture.from('blink-03.png'));
+        blinkFrames.push(Texture.from('blink-04.png'));
+        blinkFrames.push(Texture.from('blink-01.png'));
 
         this.animatedKitten = new AnimatedSprite(blinkFrames);
         this.animatedKitten.x = Manager.width / 2;
