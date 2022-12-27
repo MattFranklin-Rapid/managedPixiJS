@@ -37,7 +37,7 @@
 	"anchor": {"x":0.5,"y":0.5}
 }},
 "animations": {
-	"blink": ["blink-01.png","blink-02.png","blink-03.png","blink-04.png"]
+	"blink": ["blink-01.png","blink-02.png","blink-02.png","blink-03.png","blink-04.png","blink-01.png"]
 },
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",

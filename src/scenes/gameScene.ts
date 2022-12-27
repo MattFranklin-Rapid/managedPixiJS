@@ -1,4 +1,4 @@
-import { AnimatedSprite, Container, Sprite, Texture } from "pixi.js";
+import { AnimatedSprite, Assets, Container, Sprite } from "pixi.js";
 import { IScene } from "./scene";
 import { Manager } from "../controllers/manager";
 
@@ -6,29 +6,15 @@ export class GameScene extends Container implements IScene {
     private kitten: Sprite;
     private kittenVelocity: number;
 
-    private animatedKitten: AnimatedSprite;
+    private animations: AnimatedSprite[] = [];
     private frameCount: number = 0;
 
     constructor() {
         super();
 
         //This is pulled from the sprite map in kitten1.json
+        //Also this inline loader sucks, chekcout th eloadANimations below for a better pattern
         this.kitten = Sprite.from("blink-04.png");
-
-        const blinkFrames: Texture[] = [];
-        blinkFrames.push(Texture.from('blink-01.png'));
-        blinkFrames.push(Texture.from('blink-02.png'));
-        blinkFrames.push(Texture.from('blink-02.png'));
-        blinkFrames.push(Texture.from('blink-03.png'));
-        blinkFrames.push(Texture.from('blink-04.png'));
-        blinkFrames.push(Texture.from('blink-01.png'));
-
-        this.animatedKitten = new AnimatedSprite(blinkFrames);
-        this.animatedKitten.x = Manager.width / 2;
-        this.animatedKitten.y = Manager.height / 2;
-        this.animatedKitten.loop = false;
-        this.animatedKitten.animationSpeed = 0.25;
-        this.addChild(this.animatedKitten);
 
         this.kitten.anchor.set(0.5);
         this.kitten.x = Manager.width / 2;
@@ -36,7 +22,36 @@ export class GameScene extends Container implements IScene {
         this.addChild(this.kitten);
 
         this.kittenVelocity = 0.5;
+
+        //Take all the prepared animations and load them to the stage
+        this.loadAnimations().then(() => {
+            this.animations.map(e => this.addChild(e));
+        })
     }
+
+    /**
+     * General loader for bringing in assets for this scene
+     * Used because no await in constructors is a pain in the butt
+     */
+    public async loadAnimations(): Promise<void>{
+        await this.loadBlinkAnimation();
+
+    }
+
+    /**
+     * Loads the blinking animation kitty
+     */
+    private async loadBlinkAnimation(): Promise<void> {
+        const blinkSheet = await Assets.load('./kitten1/kitten1-blink.json');
+        const animatedKitten = new AnimatedSprite(blinkSheet.animations['blink']);
+        animatedKitten.name = 'Kitty 1';
+        animatedKitten.x = Manager.width / 2;
+        animatedKitten.y = Manager.height / 2;
+        animatedKitten.loop = false;
+        animatedKitten.animationSpeed = 0.25;
+        this.animations.push(animatedKitten);
+    }
+
     public update(framesPassed: number): void {
         // Lets move!
         this.frameCount += framesPassed;
@@ -54,7 +69,7 @@ export class GameScene extends Container implements IScene {
 
         if(Math.floor(this.frameCount) % 100 == 0){
             console.log('Lets Go');
-            this.animatedKitten.gotoAndPlay(0);
+            this.animations[0].gotoAndPlay(0); //Again, ugly
         }
     }
 }
