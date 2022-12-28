@@ -33,7 +33,7 @@ export class Character extends Container{
             if(!state){
                 throw new Error(`Starting State ${startingState} was not found in initial states.`);
             }else{
-                
+                this.setCurrentState(startingState);
             }
         }
 
