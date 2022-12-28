@@ -10,7 +10,9 @@ export const manifest:ResolverManifest = {
         {
             name: 'Kitten1',
             assets:{
-                'blinkSheet': './kitten1/kitten1-blink.json'
+                'blinkSheet': './kitten1/kitten1-blink.json',
+                'jumpSheet': './kitten1/kitten1-jump.json',
+                'sleepSheet': './kitten1/kitten1-sleep.json'
             }
         }
     ]
