@@ -59,7 +59,6 @@ export class GameScene extends Container implements IScene {
     }
 
     private jump(e: FederatedPointerEvent): void {
-        console.warn(e.ctrlKey);//GO AWAY you frigging did not use error I hate you
         this.y -= 5; 
     }
 

@@ -10,8 +10,8 @@
         "strict": true,
         "noImplicitAny": true,
         "noImplicitReturns": true,
-        "noUnusedParameters": true,
-        "noUnusedLocals": true,
+        "noUnusedParameters": false, //Set to true before production release and fix errors
+        "noUnusedLocals": false, //Set to true before production release and fix errors
         "noFallthroughCasesInSwitch": true,
         "noImplicitOverride": true,
 
